@@ -1,0 +1,20 @@
+# Import Excel Sheets:
+import pandas as pd
+
+# Define the path to the Excel file:
+file_path = r'C:\Users\Desktop\Analysis.xlsx'
+
+# Read the Excel file and get the sheet names:
+df = pd.ExcelFile(file_path)
+sheet_names = df.sheet_names
+
+# Create a dictionary to store dataframes for each sheet:
+dataframes = {}
+
+# Import data from all sheets:
+for i, sheet_name in enumerate(sheet_names, start=1):
+    dataframe_name = f'df{i}'
+    dataframes[dataframe_name] = pd.read_excel(file_path, sheet_name=sheet_name)
+
+# Inner Join on Column Name 'Product ID':
+df = pd.merge(df1, df2, df3], how='inner', on='Product ID', validate='many_to_many')
